@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="row">
+
+  </div>
+  <div class="row">
+    <div class="panel panel-primary" md-theme="custom">
+      <div class="panel-heading">Sign up</div>
+        <div class="panel-body">
+          <form name="userForm">
+            <div class="col-md-6">
+              <div class="form-group">
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Identification # - #### - ####</label>
+                  <input class="md-primary" required  name="identification" ng-pattern="/^[0-9]{1}-[0-9]{4}-[0-9]{4}$/" ng-model="vmSignup.user.identification" />
+                  <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+                  <div ng-messages="userForm.identification.$error" ng-if="!showHints">
+                    <div ng-message="required">Identification is required.</div>
+                    <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                  </div>
+                </md-input-container>
+              </div>
+              <div class="form-group">
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Name</label>
+                  <input required name="name" ng-model="vmSignup.user.name"/>
+                  <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+                  <div ng-messages="userForm.name.$error" ng-if="!showHints">
+                    <div ng-message="required">Name is required.</div>
+                  </div>
+                </md-input-container>
+              </div>
+              <div class="form-group">
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Last name</label>
+                  <input required name="lastName" ng-model="vmSignup.user.lastName"/>
+                  <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+                  <div ng-messages="userForm.lastName.$error" ng-if="!showHints">
+                    <div ng-message="required">Last name is required.</div>
+                  </div>
+                </md-input-container>
+              </div>
+              <div class="form-group">
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Phone Number</label>
+                  <input name="phone" ng-model="vmSignup.user.celPhone" ng-pattern="/^[0-9]{4}-[0-9]{4}$/" />
+                  <div class="hint" ng-show="showHints">###-####</div>
+                  <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+                    <div ng-message="pattern">###-#### - Please enter a valid phone number.</div>
+                  </div>
+                </md-input-container>
+              </div>
+              <div class="form-group">
+                <md-input-container class="md-block" flex-gt-sm>
+                 <label>Email</label>
+                 <input name="email" ng-model="vmSignup.user.email"
+                        required minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                 <div class="hint" ng-show="showHints"></div>
+                 <div ng-messages="userForm.email.$error" ng-hide="showHints">
+                   <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                     Your email must be between 10 and 100 characters long and look like an e-mail address.
+                   </div>
+                 </div>
+               </md-input-container>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <md-input-container class="md-block">
+                  <label>Address</label>
+                  <textarea ng-model="vmSignup.user.direction" name="address" rows="4" cols="30"></textarea>
+                </md-input-container>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-4">
+                    <md-input-container class="md-block" flex-gt-sm>
+                      <label>Province</label>
+                      <md-select ng-model="vmSignup.user.province">
+                        <md-option  ng-click="vmSignup.chargeCantons(province)" ng-repeat="province in vmSignup.provinces" value="{{province.nombre}}">
+                          {{province.nombre}}
+                        </md-option>
+                      </md-select>
+                    </md-input-container>
+                  </div>
+                  <div class="col-md-4">
+                    <md-input-container class="md-block" flex-gt-sm>
+                      <label>Canton</label>
+                      <md-select ng-model="vmSignup.user.canton">
+                        <md-option ng-click="vmSignup.chargeDistrits(canton)" ng-repeat="canton in vmSignup.cantons" value="{{canton.nombre}}">
+                          {{canton.nombre}}
+                        </md-option>
+                      </md-select>
+                    </md-input-container>
+                  </div>
+                  <div class="col-md-4">
+                    <md-input-container class="md-block" flex-gt-sm>
+                      <label>Distrit</label>
+                      <md-select ng-model="vmSignup.user.distrit">
+                        <md-option ng-repeat="distrit in vmSignup.distrits" value="{{distrit.nombre}}">
+                          {{distrit.nombre}}
+                        </md-option>
+                      </md-select>
+                    </md-input-container>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <md-radio-group ng-model="vmSignup.user.role">
+                  <md-radio-button  value="client" class="md-primary">Client</md-radio-button>
+                  <md-radio-button  value="driver"> Driver</md-radio-button>
+                </md-radio-group>
+              </div>
+              <div class="form-group">
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Password</label>
+                  <input type="Password" required name="password" ng-model="vmSignup.user.password"/>
+                  <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+                  <div ng-messages="userForm.password.$error" ng-if="!showHints">
+                    <div ng-message="required">Password is required.</div>
+                  </div>
+                </md-input-container>
+              </div>
+              <md-button  lass="md-accent" ng-disabled="userForm.$invalid" ng-click="vmSignup.create()" class="md-warn md-raised md-hue-2">Register</md-button>
+              <!--ng-disabled="userForm.$invalid"-->
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

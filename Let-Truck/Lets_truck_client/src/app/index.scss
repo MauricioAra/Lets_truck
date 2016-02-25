@@ -11,6 +11,9 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
  */
 // bower:scss
 // endbower
+body{
+  background-color:#f5f5f5;
+}
 
 .browsehappy {
   margin: 0.2em 0;
@@ -27,6 +30,15 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   }
 }
 
+.panel-primary > .panel-heading {
+  background-color: #ad1457;
+  border-bottom: none;
+
+}
+.panel-primary {
+  border: none;
+  box-shadow: 5px 5px 5px #bdbdbd;
+}
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

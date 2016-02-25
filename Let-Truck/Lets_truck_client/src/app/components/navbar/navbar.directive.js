@@ -21,9 +21,14 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment) {
+    function NavbarController(moment,$state) {
       var vm = this;
-      v
+      vm.signup = function(){
+        $state.go('signup');
+      }
+      vm.login = function(){
+        $state.go('login');
+      }
     }
   }
 

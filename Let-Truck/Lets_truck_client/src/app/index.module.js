@@ -10,5 +10,9 @@
                                 'ngAria',
                                 'ui.router',
                                 'ui.bootstrap',
-                                'toastr']);
+                                'toastr',
+                                'ngMaterial'])
+   .config(function($mdThemingProvider) {
+      $mdThemingProvider.theme("custom").primaryColor("teal").accentColor("deep-orange");
+     });
 })();
