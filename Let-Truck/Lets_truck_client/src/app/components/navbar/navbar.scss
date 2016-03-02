@@ -1,3 +1,18 @@
 .acme-navbar-text{
-  color: white;
+  color: black;
+}
+.acme-navbar-background{
+  background-color: white;
+}
+.wox-navbar-logo{
+  height: 50px;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus{
+  color:white;
+  background-color: #009688;
+}
+.navbar-default{
+  box-shadow: 5px 5px 5px #bdbdbd;
 }

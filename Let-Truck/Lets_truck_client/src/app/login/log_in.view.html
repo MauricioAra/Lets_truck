@@ -1,13 +1,13 @@
 <div class="container login-back">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <div class="panel panel-default">
+      <div class="panel panel-default panel-primary">
         <div class="panel-body">
           <h1>Login</h1>
           <form action="loginForm" name="loginForm" md-theme="custom">
             <div class="form-group">
               <md-input-container class="md-block" flex-gt-sm>
-               <label>Email</label>
+               <label>E-mail</label>
                <input name="email" ng-model="vmLogin.auth.email"
                       required minlength="10" maxlength="50" ng-pattern="/^.+@.+\..+$/" />
                <div class="hint" ng-show="showHints"></div>

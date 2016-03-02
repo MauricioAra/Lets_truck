@@ -29,6 +29,13 @@
       vm.login = function(){
         $state.go('login');
       }
+      vm.logout = function(){
+        localStorage.setItem("idUser",null);
+        localStorage.setItem("userName",null);
+        localStorage.setItem("logged",null);
+        $state.go('login');
+      }
+      vm.curreuntUserName = localStorage.getItem("userName");
     }
   }
 

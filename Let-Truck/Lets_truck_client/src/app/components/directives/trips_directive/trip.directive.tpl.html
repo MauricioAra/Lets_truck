@@ -1,0 +1,17 @@
+<md-card md-theme="custom">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline color-secondary-text">{{vmTripCard.trip.dateTrip}}</span>
+      <span class="md-subhead">{{vmTripCard.trip.description}}</span>
+    </md-card-title-text>
+    <md-card-title-media>
+      <div class="md-media-sm card-media">
+          <img src="{{vmTripCard.trip.img}}" alt="truck">
+      </div>
+    </md-card-title-media>
+  </md-card-title>
+  <md-card-actions layout="row" layout-align="end center">
+    <md-button ui-sref="trip-profile({idTrip : vmTripCard.trip._id , idUser: vmTripCard.trip.idUser})" class="md-raised md-primary">Show</md-button>
+    <md-button class="md-primary">Delete</md-button>
+  </md-card-actions>
+</md-card>

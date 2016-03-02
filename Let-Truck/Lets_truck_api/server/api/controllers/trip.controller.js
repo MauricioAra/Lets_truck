@@ -1,9 +1,9 @@
-// Distribution controller
+// Trip controller
 var request = require('request');
-var User = require('../models/user.model.js');
+var Trip = require('../models/trip.model.js');
   // get the todos resource
   module.exports.getAll = function(req, res){
-    User.find().then(function(resp) {
+    Trip.find().then(function(resp) {
       res.codeMessage = 201;
       res.mesagge ="Successfully register!"
       res.send(resp);
@@ -13,20 +13,30 @@ var User = require('../models/user.model.js');
   };
   //
   module.exports.create = function(req, res){
-    User.create(req.body).then(function(resp){
-      res.send(resp);
-    }).catch(function(err){
-      errorHandler(err);
-    })
-  };
-  module.exports.getUser = function(req, res){
-    User.find({_id : req.body.id}).then(function(resp){
+    Trip.create(req.body).then(function(resp){
       res.send(resp);
     }).catch(function(err){
       errorHandler(err);
     })
   };
   //
+  module.exports.getMyTrips = function(req, res){
+    Trip.find({idUser:req.body.id}).then(function(resp) {
+      res.send(resp);
+    }).catch(function(err){
+      errorHandler(err);
+    })
+  };
+  //
+  module.exports.getTrip = function(req, res){
+    Trip.find({_id:req.body.id}).then(function(resp) {
+      res.codeMessage = 201;
+      res.mesagge ="Successfully get!"
+      res.send(resp);
+    }).catch(function(err){
+      errorHandler(err);
+    })
+  };
   /*module.exports.deleteTodo = function(req, res){
     Todo.findByIdAndRemove(req.body.id).then(function(resp){
       res.send(resp);

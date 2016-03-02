@@ -1,29 +1,33 @@
 // Routes entry point
 var express = require('express'),
 		router = express.Router(),
-		userController = require('../controllers/user.controller.js');
+		ofertController = require('../controllers/ofert.controller.js');
 // Routes
 router.param('id',function(req, res, next, id){
 	req.body.id = id;
 	next();
 });
 //router.get('/todos', ctrltodo.getAll),
-	router.route('/user')
+	/*router.route('/ofert')
  		.get(function(req, res){
-   		 userController.getAll(req, res);
+   		 tripController.getAll(req, res);
  		})
  		.post(function(req, res){
-   		 userController.create(req, res);
+   		 tripController.create(req, res);
  		});
 		/*.delete(function(req, res){
    		 //ctrltodo.deleteTodo(req, res);
  		});*/
-		router.route('/oneUser/:id')
+		router.route('/ofertsTrip/:id')
 			.get(function(req, res){
-				userController.getUser(req, res);
+				ofertController.getOfersByTrip(req, res);
 		});
+		/*router.route('/tripOne/:id')
+			.get(function(req, res){
+				tripController.getTrip(req, res);
+		});*/
 		//
-	//cardRoute.route('/cards/:id')
+	//cardRoute.rou/*te('/cards/:id')
  		//.delete(function(req, res){
    	//var cards = cardController.deleteDuty(req, res);
  	//});

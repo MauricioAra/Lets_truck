@@ -6,6 +6,5 @@ var User = require('../models/user.model.js');
       res.send(resp);
     }).catch(function(err){
       errorHandler(err);
-      response.status(500).send('shdbj');
     })
   };

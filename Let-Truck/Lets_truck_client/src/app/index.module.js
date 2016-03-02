@@ -11,7 +11,8 @@
                                 'ui.router',
                                 'ui.bootstrap',
                                 'toastr',
-                                'ngMaterial'])
+                                'ngMaterial',
+                                 'ngMap'])
    .config(function($mdThemingProvider) {
       $mdThemingProvider.theme("custom").primaryColor("teal").accentColor("deep-orange");
      });

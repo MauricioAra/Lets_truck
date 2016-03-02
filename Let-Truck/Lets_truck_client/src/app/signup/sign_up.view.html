@@ -1,10 +1,7 @@
 <div class="container">
   <div class="row">
-
-  </div>
-  <div class="row">
     <div class="panel panel-primary" md-theme="custom">
-      <div class="panel-heading">Sign up</div>
+      <div class="panel-heading"><h4>Sign up</h4></div>
         <div class="panel-body">
           <form name="userForm">
             <div class="col-md-6">
@@ -42,7 +39,7 @@
               <div class="form-group">
                 <md-input-container class="md-block" flex-gt-sm>
                   <label>Phone Number</label>
-                  <input name="phone" ng-model="vmSignup.user.celPhone" ng-pattern="/^[0-9]{4}-[0-9]{4}$/" />
+                  <input name="phone" ng-model="vmSignup.user.phone" ng-pattern="/^[0-9]{4}-[0-9]{4}$/" />
                   <div class="hint" ng-show="showHints">###-####</div>
                   <div ng-messages="userForm.phone.$error" ng-hide="showHints">
                     <div ng-message="pattern">###-#### - Please enter a valid phone number.</div>
@@ -121,7 +118,6 @@
                 </md-input-container>
               </div>
               <md-button  lass="md-accent" ng-disabled="userForm.$invalid" ng-click="vmSignup.create()" class="md-warn md-raised md-hue-2">Register</md-button>
-              <!--ng-disabled="userForm.$invalid"-->
             </div>
         </form>
       </div>

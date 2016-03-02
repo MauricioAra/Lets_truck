@@ -19,12 +19,19 @@ angular
             'Successful entry!',
             'success'
           );
-          $state.go('home');
+          localStorage.setItem("idUser", data._id);
+          localStorage.setItem("userName", data.name);
+          localStorage.setItem("rol", data.role);
+          localStorage.setItem("logged",true);
+          $state.go('dash');
         }
-
       })
       .error(function(err){
-        alert('Malo');
+        swal(
+          'Error',
+          'E-mail and password incorrects',
+          'error'
+        );
       })
     }
   }

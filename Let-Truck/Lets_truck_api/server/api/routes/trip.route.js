@@ -1,26 +1,30 @@
 // Routes entry point
 var express = require('express'),
 		router = express.Router(),
-		userController = require('../controllers/user.controller.js');
+		tripController = require('../controllers/trip.controller.js');
 // Routes
 router.param('id',function(req, res, next, id){
 	req.body.id = id;
 	next();
 });
 //router.get('/todos', ctrltodo.getAll),
-	router.route('/user')
+	router.route('/trip')
  		.get(function(req, res){
-   		 userController.getAll(req, res);
+   		 tripController.getAll(req, res);
  		})
  		.post(function(req, res){
-   		 userController.create(req, res);
+   		 tripController.create(req, res);
  		});
 		/*.delete(function(req, res){
    		 //ctrltodo.deleteTodo(req, res);
  		});*/
-		router.route('/oneUser/:id')
+		router.route('/trip/:id')
 			.get(function(req, res){
-				userController.getUser(req, res);
+				tripController.getMyTrips(req, res);
+		});
+		router.route('/tripOne/:id')
+			.get(function(req, res){
+				tripController.getTrip(req, res);
 		});
 		//
 	//cardRoute.route('/cards/:id')

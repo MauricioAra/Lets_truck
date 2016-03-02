@@ -1,0 +1,87 @@
+<div class="container" md-theme="custom">
+  <div class="row">
+    <md-tabs md-dynamic-height>
+      <md-tab label="Trip information">
+          <div class="panel panel-primary none">
+            <div class="panel-heading"><h4>
+              <label for="">Client: </label> {{vmTripProfile.user.name}} {{vmTripProfile.user.lastName}}</h4>
+            </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <md-subheader class="md-no-sticky">Carrying</md-subheader>
+                    <md-list-item>
+                      <p class="color-secondary-text">{{vmTripProfile.trip.description}}</p>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-subheader class="md-no-sticky">Origin</md-subheader>
+                    <md-list-item class="secondary-button-padding">
+                      <p class="color-secondary-text">{{vmTripProfile.trip.directionOriginMap}}</p>
+                    </md-list-item>
+                    <md-subheader class="md-no-sticky">Exact direction origin</md-subheader>
+                    <md-list-item class="secondary-button-padding">
+                      <p class="color-secondary-text">{{vmTripProfile.trip.exactDirectionOrigin}}</p>
+                    </md-list-item>
+                  </div>
+                  <div class="col-md-6">
+                    <md-subheader class="md-no-sticky">Comments</md-subheader>
+                    <md-list-item class="secondary-button-padding">
+                      <p class="color-secondary-text">{{vmTripProfile.trip.comment}}</p>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-subheader class="md-no-sticky">Destination</md-subheader>
+                    <md-list-item class="secondary-button-padding">
+                      <p class="color-secondary-text">{{vmTripProfile.trip.directionDestinationMap}}</p>
+                    </md-list-item>
+                    <md-subheader class="md-no-sticky">Exact direction destination</md-subheader>
+                    <md-list-item class="secondary-button-padding">
+                      <p class="color-secondary-text">{{vmTripProfile.trip.exactDirectionDestination}}</p>
+                    </md-list-item>
+                  </div>
+                </div>
+                <div class="row">
+                  <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-click="vmTripProfile.back()" class="md-primary">Back</md-button>
+                    <md-button ui-sref="trip-profile({idTrip : vmTripCard.trip._id , idUser: vmTripCard.trip.idUser})" class="md-raised md-warn">Let's Go!</md-button>
+                  </md-card-actions>
+                </div>
+              </div>
+            </div>
+      </md-tab>
+      <md-tab label="Map">
+          <div class="panel panel-primary">
+            <div class="panel-heading"><h4>Map (Help)</h4></div>
+              <div class="panel-body">
+                <div style="width: 100%; float:left; height: 100%">
+                  <h1>{{current}}</h1>
+                  <ng-map zoom="9" >
+                    <directions
+                      draggable="false"
+                      travel-mode="DRIVING"
+                      origin="{{vmTripProfile.trip.directionOriginMap}}"
+                      destination="{{vmTripProfile.trip.directionDestinationMap}}">
+                    </directions>
+                  </ng-map>
+                  <br/>
+                  <br/>
+                </div>
+             </div>
+          </div>
+      </md-tab>
+      <md-tab label="Offers">
+          <div class="panel panel-primary">
+            <div class="panel-heading"><h4>Offers for your trip</h4></div>
+              <div class="panel-body">
+                  <md-subheader class="md-no-sticky">Avatar with Secondary Action Icon</md-subheader>
+                  <md-list-item ng-repeat="offer in vmTripProfile.offers" ng-click="goToPerson(person.name, $event)">
+                    <img alt="" src="../../assets/images/verde2.png" class="avatar"/>
+                    <p>{{offer.description}}</p>
+                    <md-icon md-svg-icon="communication:messenger" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class="{'md-primary': person.newMessage}"></md-icon>
+                  </md-list-item>
+                </md-list>
+             </div>
+          </div>
+      </md-tab>
+    </md-tabs>
+  </div>
+</div>

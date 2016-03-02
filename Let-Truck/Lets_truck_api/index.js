@@ -8,6 +8,8 @@ var express = require('express'),
 		routesCanton = require('./server/api/routes/canton.route');
 		routesDistrit = require('./server/api/routes/distrit.route');
 		routesAuth = require('./server/api/routes/auth.route');
+		routesTrip = require('./server/api/routes/trip.route');
+		routesOfert = require('./server/api/routes/ofert.route');
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -24,6 +26,8 @@ app.use('/api', routesProvince);
 app.use('/api', routesCanton);
 app.use('/api', routesDistrit);
 app.use('/api', routesAuth);
+app.use('/api', routesTrip);
+app.use('/api', routesOfert);
 app.listen(3000, function() {
 	console.log('Listening on port 3000!!!');
 });
