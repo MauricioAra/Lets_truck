@@ -11,7 +11,6 @@
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-
       },
       controller: NavbarController,
       controllerAs: 'vm',
@@ -23,6 +22,8 @@
     /** @ngInject */
     function NavbarController(moment,$state) {
       var vm = this;
+      vm.menu = vm.mainObject;
+
       vm.signup = function(){
         $state.go('signup');
       }
@@ -30,12 +31,11 @@
         $state.go('login');
       }
       vm.logout = function(){
-        localStorage.setItem("idUser",null);
-        localStorage.setItem("userName",null);
-        localStorage.setItem("logged",null);
+        localStorage.setItem("idUser",'');
+        localStorage.setItem("userName",'');
+        localStorage.setItem("logged",'');
         $state.go('login');
       }
-      vm.curreuntUserName = localStorage.getItem("userName");
     }
   }
 

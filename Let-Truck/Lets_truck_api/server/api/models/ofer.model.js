@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
     amount : String,
     description : String,
     idTrip : String,
-    idDriver : String,
-    idTruck : String
+    idDriver : String
   });
   module.exports = mongoose.model('Offer', OferSchema);

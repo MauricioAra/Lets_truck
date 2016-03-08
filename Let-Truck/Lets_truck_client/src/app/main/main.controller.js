@@ -5,6 +5,6 @@
     .controller('MainController', MainController);
   /** @ngInject */
   function MainController() {
-    var vmMain = this
+    var vmMain = this;
     }
 })();

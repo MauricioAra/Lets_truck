@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top navbar-fixed-top wox-main-navbar acme-navbar-background">
+<div class="navbar navbar-default navbar-static-top navbar-fixed-top wox-main-navbar acme-navbar-background navbot">
  <div class="container-fluid">
    <div class="navbar-header">
      <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
@@ -12,14 +12,14 @@
    <div collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
 
      <ul class="nav navbar-nav">
-       <li><p class="navbar-text">Hello<strong> {{vm.curreuntUserName}}</strong></p></li>
-       <li ng-repeat="item in vm.menu" ui-sref-active="active">
-           <a ui-sref="{{}}">{{}}</a>
-       </li>
+       <li  ui-sref-active="active"><a ui-sref="dash">Dash</a></li>
+      <li  ui-sref-active="active"><a ui-sref="my-trip">My trips</a></li>
+      <li  ui-sref-active="active"><a ui-sref="trucks">My trucks</a></li>
      </ul>
      <ul class="nav navbar-nav navbar-right">
        <li  ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
        <li  ui-sref-active="active"><a ui-sref="login">Login</a></li>
+       <li  ui-sref-active="active"><a ng-click="vm.logout()">Log-out</a></li>
        <li  ui-sref-active="active"><a ui-sref="settings">Settings</a></li>
       <!-- <li ng-show="nav.isLoggedIn() && nav.getCurrentUser().provider == 'local'" class="avatar">
          <img src="../assets/images/user.png" alt="Avatar" width="50px" height="50px">

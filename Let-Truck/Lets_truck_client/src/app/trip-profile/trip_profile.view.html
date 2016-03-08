@@ -42,7 +42,7 @@
                 <div class="row">
                   <md-card-actions layout="row" layout-align="end center">
                     <md-button ng-click="vmTripProfile.back()" class="md-primary">Back</md-button>
-                    <md-button ui-sref="trip-profile({idTrip : vmTripCard.trip._id , idUser: vmTripCard.trip.idUser})" class="md-raised md-warn">Let's Go!</md-button>
+                      <md-button ng-show="vmTripProfile.tenderVisible" ng-click="vmTripProfile.open()" class="md-raised md-warn">Tender</md-button>
                   </md-card-actions>
                 </div>
               </div>
@@ -68,15 +68,22 @@
              </div>
           </div>
       </md-tab>
-      <md-tab label="Offers">
-          <div class="panel panel-primary">
+      <md-tab  label="Offers">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <h3 class="color-secondary-text" ng-show="vmTripProfile.messagge">You not have permission to see offers!</h3>
+            </div>
+          </div>
+
+          <div ng-show="vmTripProfile.mostrar" class="panel panel-primary">
             <div class="panel-heading"><h4>Offers for your trip</h4></div>
               <div class="panel-body">
-                  <md-subheader class="md-no-sticky">Avatar with Secondary Action Icon</md-subheader>
+                  <md-subheader class="md-no-sticky">If you want to see the advanced information please click the offer!</md-subheader>
+              <md-list>
                   <md-list-item ng-repeat="offer in vmTripProfile.offers" ng-click="goToPerson(person.name, $event)">
                     <img alt="" src="../../assets/images/verde2.png" class="avatar"/>
                     <p>{{offer.description}}</p>
-                    <md-icon md-svg-icon="communication:messenger" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class="{'md-primary': person.newMessage}"></md-icon>
+                    <p>{{offer.amount}}</p>
                   </md-list-item>
                 </md-list>
              </div>
@@ -85,3 +92,46 @@
     </md-tabs>
   </div>
 </div>
+<!--Modal action-->
+     <div class="dau" ng-controller="modalController as modal">
+       <script type="text/ng-template" id="/myModalContent.html">
+         <form name="offer">
+           <div class="modal-header">
+             <button type="button" ng-click="modal.close()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h3 class="modal-title color-secondary-text">New offer</h3>
+           </div>
+           <div class="modal-body" md-theme="custom">
+             <div class="row">
+               <div class="col-md-12">
+                 <div class="form">
+                 <div class="form-group">
+                   <md-input-container class="md-block" flex-gt-sm>
+                     <label>Amount</label>
+                     <input required name="amount" ng-model="modal.amount" min="1" type="number"/>
+                     <div ng-messages="offer.amount.$error" ng-hide="showHints">
+                       <div ng-message="pattern">Please enter a valid amount.</div>
+                     </div>
+                   </md-input-container>
+                 </div>
+                 <div class="form-group">
+                   <md-input-container class="md-block" flex-gt-sm>
+                     <label>Descrption</label>
+                     <input required name="description" ng-model="modal.description"/>
+                     <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+                     <div ng-messages="offer.description.$error" ng-if="!showHints">
+                       <div ng-message="required">Description is required.</div>
+                     </div>
+                   </md-input-container>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="modal-footer" md-theme="custom">
+           <md-button  ng-click="modal.close()" class="md-primary">Close</md-button>
+           <md-button ng-disabled="offer.$invalid" ng-click="modal.create()" class="md-raised md-warn">Send</md-button>
+         </div>
+         </form>
+       </script>
+     </div>
+     <!--End modal action -->

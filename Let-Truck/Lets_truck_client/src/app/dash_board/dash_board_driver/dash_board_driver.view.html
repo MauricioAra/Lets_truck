@@ -1,0 +1,17 @@
+<div class="container" md-theme="custom">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Search...</label>
+          <input name="search" ng-model="search"/>
+        </md-input-container>
+      </div>
+    </div>
+  </div>
+  <div ng-repeat="trip in vmDashDriver.trips | filter:search | orderBy:'-dateTrip'">
+    <div class="col-md-4">
+      <trip-cards trips="trip"></trip-cards>
+    </div>
+  </div>
+</div>

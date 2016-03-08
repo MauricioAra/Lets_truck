@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="row">
+      <div class="panel panel-primary" md-theme="custom">
+        <div class="panel-heading"><h4>Create your truck</h4></div>
+          <div class="panel-body">
+            <form action="" name="truck">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label>Brand</label>
+                    <input required name="brand" ng-model="vmCTruck.brand"/>
+                    <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+                    <div ng-messages="truck.brand.$error" ng-if="!showHints">
+                      <div ng-message="required">Brand is required.</div>
+                    </div>
+                  </md-input-container>
+                </div>
+                <div class="form-group">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label>Model</label>
+                    <input required name="model" ng-model="vmCTruck.model"/>
+                    <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+                    <div ng-messages="truck.model.$error" ng-if="!showHints">
+                      <div ng-message="required">Model is required.</div>
+                    </div>
+                  </md-input-container>
+                </div>
+                <div class="form-group">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label>Year 9999</label>
+                    <input required name="year" ng-pattern="/^[0-9]{4}$/" ng-model="vmCTruck.year"/>
+                    <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+                    <div ng-messages="truck.year.$error" ng-if="!showHints">
+                      <div ng-message="required">Year is required.</div>
+                    </div>
+                  </md-input-container>
+                </div>
+                <div class="form-group">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label>License plate</label>
+                    <input required name="plate" ng-pattern="/^[a-zA-Z0-9]{6}$/" ng-model="vmCTruck.licensePlate"/>
+                    <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+                    <div ng-messages="truck.plate.$error" ng-if="!showHints">
+                      <div ng-message="required">License plate is required.</div>
+                    </div>
+                  </md-input-container>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label>Tonnage</label>
+                      <input required name="tonnage" min="1" ng-model="vmCTruck.tonnage" type="number">
+                    <div ng-messages="truck.tonnage.$error" ng-if="!showHints">
+                      <div ng-message="required">Tonnage plate is required.</div>
+                    </div>
+                  </md-input-container>
+                </div>
+                <div class="form-group">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label>Extras</label>
+                    <textarea required name="extras" ng-model="vmCTruck.extras" rows="5" md-select-on-focus></textarea>
+                    <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+                    <div ng-messages="trip.description.$error" ng-if="!showHints">
+                      <div ng-message="required">Description is required.</div>
+                    </div>
+                  </md-input-container>
+                </div>
+                <div class="form-group">
+                  <md-radio-group ng-model="vmCTruck.ramp">
+                    <label class="blo">Have ramp?</label>
+                    <md-radio-button  class="line" value="yes" class="md-primary">Yes</md-radio-button>
+                    <md-radio-button  class="line" value="no" checked>No</md-radio-button>
+                  </md-radio-group>
+                </div>
+                <div class="form-group">
+                  <md-radio-group  ng-model="vmCTruck.refrigerated">
+                    <label class="blo" for="">Is it refrigerated ?</label>
+                    <md-radio-button  class="line" value="yes" class="md-primary">Yes</md-radio-button>
+                    <md-radio-button class="line" value="no" checked>No</md-radio-button>
+                  </md-radio-group>
+                </div>
+                <div class="row">
+                  <md-card-actions layout="row" layout-align="end center">
+                    <md-button ui-sref="trucks" class="md-primary">Back</md-button>
+                    <md-button ng-disabled="truck.$invalid" ng-click="vmCTruck.create()" class="md-raised md-warn">Create</md-button>
+                  </md-card-actions>
+                </div>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>

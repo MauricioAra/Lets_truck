@@ -21,6 +21,7 @@ angular
           );
           localStorage.setItem("idUser", data._id);
           localStorage.setItem("userName", data.name);
+          localStorage.setItem("lastName", data.lastName);
           localStorage.setItem("rol", data.role);
           localStorage.setItem("logged",true);
           $state.go('dash');

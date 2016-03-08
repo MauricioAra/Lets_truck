@@ -1,24 +1,24 @@
 // Trip controller
 var request = require('request');
-var Ofert = require('../models/ofer.model.js');
+var Offer = require('../models/ofer.model.js');
   // get the todos resource
   module.exports.getOfersByTrip = function(req, res){
-    Ofert.find({idTrip : req.body.id}).then(function(resp) {
+    Offer.find({idTrip : req.body.id}).then(function(resp) {
       res.send(resp);
     }).catch(function(err){
       errorHandler(err);
     })
   };
   //
-  /*module.exports.create = function(req, res){
-    Trip.create(req.body).then(function(resp){
+  module.exports.create = function(req, res){
+    Offer.create(req.body).then(function(resp){
       res.send(resp);
     }).catch(function(err){
       errorHandler(err);
     })
   };
   //
-  module.exports.getMyTrips = function(req, res){
+  /*module.exports.getMyTrips = function(req, res){
     Trip.find({idUser:req.body.id}).then(function(resp) {
       res.send(resp);
     }).catch(function(err){

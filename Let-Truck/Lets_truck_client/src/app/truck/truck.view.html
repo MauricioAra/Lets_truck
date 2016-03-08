@@ -1,0 +1,40 @@
+<div class="container" md-theme="custom">
+  <md-button ui-sref="create-truck" class="md-fab md-warn md-hue-2 cus" aria-label="Profile">
+    <md-icon md-svg-src="../assets/icons/add.svg"></md-icon>
+  </md-button>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Search...</label>
+          <input name="search" ng-model="search"/>
+        </md-input-container>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="rwd-table">
+        <tr>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>License plate</th>
+          <th>Tonnage</th>
+          <th>Actions</th>
+        </tr>
+        <tr ng-repeat="truck in vmTruck.trucks | filter: search | orderBy:'year'">
+          <td>{{truck.brand}}</td>
+          <td>{{truck.model}}</td>
+          <td>{{truck.year}}</td>
+          <td>{{truck.licensePlate}}</td>
+          <td>{{truck.tonnage}}</td>
+          <td><md-button class="md-icon-button" aria-label="More">
+              <md-icon md-svg-icon="../../assets/icons/delete.svg"></md-icon>
+              </md-button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
