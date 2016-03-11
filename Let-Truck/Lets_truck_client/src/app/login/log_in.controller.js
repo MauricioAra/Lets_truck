@@ -1,7 +1,7 @@
 angular
   .module('letsTruckClient')
   .controller('loginController',loginController);
-  function loginController(authService,$state){
+  function loginController(authService,$state,$cookies){
     var vmLogin = this;
     //
     vmLogin.go = function(){
@@ -24,6 +24,7 @@ angular
           localStorage.setItem("lastName", data.lastName);
           localStorage.setItem("rol", data.role);
           localStorage.setItem("logged",true);
+          $cookies.put('tokencito', data.token);
           $state.go('dash');
         }
       })

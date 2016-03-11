@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
-var api = require('./api/api');
-var mongoose = require('mongoose');
-var database = require('config/database');
+var api = require('./api/api');s
+//var port = process.env.PORT || 3000; // used to create, sign, and verify tokens
+
 // setup the app middlware
 require('./middleware/appMiddlware')(app);
 //database

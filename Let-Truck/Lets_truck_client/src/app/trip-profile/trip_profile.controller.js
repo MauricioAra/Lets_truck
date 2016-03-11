@@ -7,7 +7,6 @@ angular
     var localOffers = [];
     $rootScope.idTrip = idTrip;
     //
-
     socket = io.connect('localhost:3000');
       socket.on('new_offer', function (data) {
         localOffers.push(data.offer);

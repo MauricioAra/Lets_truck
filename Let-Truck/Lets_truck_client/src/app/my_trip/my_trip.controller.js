@@ -5,13 +5,14 @@ angular
     var vmTrip = this;
     vmTrip.trip = "MY TRIPS"
     var myId = localStorage.getItem('idUser');
+    var token = localStorage.getItem('token');
     function init(){
       tripService.myTrips(myId)
         .success(function(data){
          vmTrip.myTrips = data;
         })
         .error(function(err){
-          alert('error');
+          console.log(err);
         })
     }
     init();

@@ -1,10 +1,15 @@
 // Auth controller
+var jwt    = require('jsonwebtoken');
 var User = require('../models/user.model.js');
   // get the todos resource
   module.exports.authenticate = function(req, res){
-    User.findOne({email:req.body.email, password:req.body.password}).then(function(resp){
-      res.send(resp);
+    User.findOne({email:req.body.email, password:req.body.password}).then(function(user){
+      //var token = jwt.sign(user.password,'ayuiter', {
+          //expiresIn: 14400 // expires in 24 hours
+        //});
+      //user.token = token;
+      res.send(user);
     }).catch(function(err){
-      errorHandler(err);
+      console.log(err);
     })
   };
