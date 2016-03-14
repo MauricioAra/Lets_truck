@@ -12,7 +12,9 @@
                                 'ui.bootstrap',
                                 'toastr',
                                 'ngMaterial',
-                                 'ngMap'])
+                                'ngMap',
+                                'ngFileUpload',
+                                'cloudinary'])
    .config(function($mdThemingProvider) {
       $mdThemingProvider.theme("custom").primaryColor("teal").accentColor("deep-orange");
      });
