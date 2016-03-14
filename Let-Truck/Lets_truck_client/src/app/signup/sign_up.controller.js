@@ -1,7 +1,7 @@
 angular
   .module('letsTruckClient')
   .controller('signupController',signupController);
-  function signupController(userService,provinceService,cantonService,distritService,$state){
+  function signupController(userService,provinceService,cantonService,distritService,$state,md5){
     //Mask $scope and global variables
     var vmSignup = this;
     var cantonsLocal = [];
@@ -37,6 +37,8 @@ angular
     init();
     //Create user method
     vmSignup.create = function(){
+      var password  = md5.createHash(vmSignup.user.password);
+      vmSignup.user.password = password;
       userService.create(vmSignup.user)
       .success(function(data) {
         swal('Success!',

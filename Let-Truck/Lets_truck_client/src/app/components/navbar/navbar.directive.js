@@ -20,9 +20,36 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment,$state) {
+
+    function NavbarController($rootScope,moment,$state) {
       var vm = this;
-      vm.menu = vm.mainObject;
+
+      if(localStorage.getItem('idUser') == ''){
+        vm.visible = false;
+        vm.visibleLog = true;
+        vm.visibleTrips = false;
+        vm.visibleTrucks = false;
+      }else{
+        vm.visibleLog = false;
+        vm.visible = true;
+        if(localStorage.getItem('rol') == 'client'){
+          vm.visibleTrips = true;
+        }
+        if(localStorage.getItem('rol') == 'driver'){
+          vm.visibleTrucks = true;
+        }
+      }
+      
+      $rootScope.$on('logged', function(event, mass) {
+        vm.visibleLog = false;
+        vm.visible = true;
+        if(localStorage.getItem('rol') == 'client'){
+          vm.visibleTrips = true;
+        }
+        if(localStorage.getItem('rol') == 'driver'){
+          vm.visibleTrucks = true;
+        }
+      });
 
       vm.signup = function(){
         $state.go('signup');
@@ -33,7 +60,11 @@
       vm.logout = function(){
         localStorage.setItem("idUser",'');
         localStorage.setItem("userName",'');
-        localStorage.setItem("logged",'');
+        localStorage.setItem("logged", false);
+        vm.visibleLog = true;
+        vm.visible = false;
+        vm.visibleTrips = false;
+        vm.visibleTrucks = false;
         $state.go('login');
       }
     }

@@ -1,10 +1,12 @@
 angular
   .module('letsTruckClient')
   .controller('loginController',loginController);
-  function loginController(authService,$state,$cookies){
+  function loginController(authService,$state,$cookies,md5,$rootScope){
     var vmLogin = this;
     //
     vmLogin.go = function(){
+      var password  = md5.createHash(vmLogin.auth.password);
+      vmLogin.auth.password = password;
       authService.checkout(vmLogin.auth)
       .success(function(data){
         if(!data){
@@ -25,6 +27,7 @@ angular
           localStorage.setItem("rol", data.role);
           localStorage.setItem("logged",true);
           $cookies.put('tokencito', data.token);
+          $rootScope.$broadcast('logged',{logged:true});
           $state.go('dash');
         }
       })

@@ -1,9 +1,14 @@
-<div class="container login-back">
+<div class="container-fluid login-back img-login">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <div class="panel panel-default panel-primary">
+      <img class="logo-login" src="../assets/images/logo-head.png" alt="letstruck">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default panel-login">
         <div class="panel-body">
-          <h1>Login</h1>
+          <h1 class="color-secondary-text">Login</h1>
           <form action="loginForm" name="loginForm" md-theme="custom">
             <div class="form-group">
               <md-input-container class="md-block" flex-gt-sm>
@@ -28,7 +33,9 @@
                 </div>
               </md-input-container>
             </div>
-            <md-button  lass="md-accent" ng-disabled="loginForm.$invalid" ng-click="vmLogin.go()" class="md-warn md-raised md-hue-2">Let's Go!</md-button>
+            <md-button ng-disabled="loginForm.$invalid" ng-click="vmLogin.go()" class="md-fab md-warn md-hue-2 btn-login" aria-label="Profile">
+              <md-icon md-svg-src="../assets/icons/rigth_arrow.svg"></md-icon>
+            </md-button>
           </form>
         </div>
       </div>

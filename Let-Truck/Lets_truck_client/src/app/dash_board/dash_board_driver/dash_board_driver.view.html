@@ -9,9 +9,9 @@
       </div>
     </div>
   </div>
-  <div ng-repeat="trip in vmDashDriver.trips | filter:search | orderBy:'-dateTrip'">
-    <div class="col-md-4">
-      <trip-cards trips="trip"></trip-cards>
+    <div ng-repeat="trip in vmDashDriver.trips | filter:search | orderBy:'-dateTrip'">
+      <div class="col-md-4">
+        <trip-cards trips="trip"></trip-cards>
+      </div>
     </div>
-  </div>
 </div>

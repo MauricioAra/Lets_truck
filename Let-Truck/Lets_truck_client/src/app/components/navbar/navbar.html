@@ -12,15 +12,15 @@
    <div collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
 
      <ul class="nav navbar-nav">
-       <li  ui-sref-active="active"><a ui-sref="dash">Dash</a></li>
-      <li  ui-sref-active="active"><a ui-sref="my-trip">My trips</a></li>
-      <li  ui-sref-active="active"><a ui-sref="trucks">My trucks</a></li>
+      <li  ng-show="vm.visible" ui-sref-active="active"><a ui-sref="dash">Dash</a></li>
+      <li  ng-show="vm.visibleTrips" ui-sref-active="active"><a ui-sref="my-trip">My trips</a></li>
+      <li  ng-show="vm.visibleTrucks" ui-sref-active="active"><a ui-sref="trucks">My trucks</a></li>
      </ul>
      <ul class="nav navbar-nav navbar-right">
-       <li  ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
-       <li  ui-sref-active="active"><a ui-sref="login">Login</a></li>
-       <li  ui-sref-active="active"><a ng-click="vm.logout()">Log-out</a></li>
-       <li  ui-sref-active="active"><a ui-sref="settings">Settings</a></li>
+       <li  ng-show="vm.visibleLog" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
+       <li  ng-show="vm.visibleLog" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+       <li  ng-show="vm.visible" ui-sref-active="active"><a ui-sref="settings">Settings</a></li>
+       <li  ng-show="vm.visible" ui-sref-active="active"><a ng-click="vm.logout()">Log-out</a></li>
       <!-- <li ng-show="nav.isLoggedIn() && nav.getCurrentUser().provider == 'local'" class="avatar">
          <img src="../assets/images/user.png" alt="Avatar" width="50px" height="50px">
        </li>-->

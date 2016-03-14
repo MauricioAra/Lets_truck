@@ -12,6 +12,6 @@
   </md-card-title>
   <md-card-actions layout="row" layout-align="end center">
     <md-button ui-sref="trip-profile({idTrip : vmTripCard.trip._id , idUser: vmTripCard.trip.idUser})" class="md-raised md-primary">Show</md-button>
-    <md-button class="md-primary">Delete</md-button>
+    <md-button ng-show="vmTripCard.visible" class="md-primary">Delete</md-button>
   </md-card-actions>
 </md-card>

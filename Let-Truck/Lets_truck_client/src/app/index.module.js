@@ -13,7 +13,8 @@
                                 'toastr',
                                 'ngMaterial',
                                 'ngMap',
-                                'ngCookies'])
+                                'ngCookies',
+                                'angular-md5'])
    .config(function($mdThemingProvider) {
       $mdThemingProvider.theme("custom").primaryColor("teal").accentColor("deep-orange");
      });
