@@ -67,11 +67,12 @@ hr {
 .panel-primary > .panel-heading {
   background-color: #003B5B;
   border-bottom: none;
-
+  border: 1px solid #003B5B;
 }
 .panel-primary {
   border: 1px solid #003B5B;
-  //box-shadow: 5px 5px 5px #bdbdbd;
+  box-shadow: none;
+  border-radius: 4px;
 }
 .none{
   border: none;

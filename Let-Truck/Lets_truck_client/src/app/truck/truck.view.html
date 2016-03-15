@@ -16,6 +16,7 @@
     <div class="col-md-12">
       <table class="rwd-table">
         <tr>
+          <th>Image</th>
           <th>Brand</th>
           <th>Model</th>
           <th>Year</th>
@@ -24,6 +25,7 @@
           <th>Actions</th>
         </tr>
         <tr ng-repeat="truck in vmTruck.trucks | filter: search | orderBy:'year'">
+          <td><img src="{{truck.image}}" alt="trucks" border=3 height=47 width=50></img></td>
           <td>{{truck.brand}}</td>
           <td>{{truck.model}}</td>
           <td>{{truck.year}}</td>

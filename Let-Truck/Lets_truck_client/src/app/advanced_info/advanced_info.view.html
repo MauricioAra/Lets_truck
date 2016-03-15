@@ -1,0 +1,70 @@
+<div class="container" md-theme="custom">
+  <div class="row">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4>
+          <md-button ui-sref="trip-profile({idTrip : vmAdvanced.idTrip ,idUser: vmAdvanced.idUserTrip})" class="md-icon-button" aria-label="More">
+            <md-icon md-svg-icon="../../assets/icons/back.svg"></md-icon>
+          </md-button>
+          <label for="">Driver: </label> {{vmAdvanced.user.name}} {{vmAdvanced.user.lastName}} | {{vmAdvanced.user.identification}}</h4>
+
+      </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6">
+              <md-subheader class="md-no-sticky">cell phone</md-subheader>
+              <md-list-item>
+                <p class="color-secondary-text">{{vmAdvanced.user.phone}}</p>
+              </md-list-item>
+              <md-divider></md-divider>
+            </div>
+            <div class="col-md-6">
+              <md-subheader class="md-no-sticky">E-mail</md-subheader>
+              <md-list-item class="secondary-button-padding">
+                <p class="color-secondary-text">{{vmAdvanced.user.email}}</p>
+              </md-list-item>
+              <md-divider></md-divider>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <md-subheader class="md-no-sticky">Direction</md-subheader>
+            <md-list-item class="secondary-button-padding">
+              <p class="color-secondary-text">{{vmAdvanced.user.direction}}</p>
+            </md-list-item>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <h2 class="tite color-secondary-text">Catalog trucks</h2>
+    <div ng-repeat="truck in vmAdvanced.trucks">
+        <div class="col-sm-6 col-md-4">
+          <md-card>
+            <img ng-src="{{truck.image}}" class="md-card-image" alt="Washed Out">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline color-secondary-text">{{truck.brand}}</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="color-primary-text">Model:</label> <p class="color-secondary-text">{{truck.model}}</p>
+                  <label class="color-primary-text">License plate:</label> <p class="color-secondary-text">{{truck.licensePlate}}</p>
+                  <label class="color-primary-text">Model:</label> <p class="color-secondary-text">{{truck.model}}</p>
+                </div>
+                <div class="col-md-6">
+                  <label class="color-primary-text">Year:</label> <p class="color-secondary-text">{{truck.year}}</p>
+                  <label class="color-primary-text">Tonnage:</label> <p class="color-secondary-text">{{truck.tonnage}}</p>
+                </div>
+              </div>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+              <!--<md-button>Action 1</md-button>
+              <md-button>Action 2</md-button>-->
+            </md-card-actions>
+          </md-card>
+        </div>
+    </div>
+  </div>
+</div>

@@ -73,8 +73,13 @@
         templateUrl: 'app/create_truck/create-truck.view.html',
         controller: 'createTruckController',
         controllerAs: 'vmCTruck'
+      })
+      .state('advanced', {
+        url: '/advanced/:idDriver/:idUserTrip',
+        templateUrl: 'app/advanced_info/advanced_info.view.html',
+        controller: 'advancedController',
+        controllerAs: 'vmAdvanced'
       });
     $urlRouterProvider.otherwise('/');
   }
-
 })();

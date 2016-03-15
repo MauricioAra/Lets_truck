@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/lets_truck');
+mongoose.connect('mongodb://root:root@ds015899.mlab.com:15899/lets_truck');
   var UserSchema = new mongoose.Schema({
     identification : {type : String , unique : true},
     name: String,

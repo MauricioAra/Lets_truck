@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
     refrigerated: String,
     extras : String,
     idDriver : String,
+    image : String,
     state : String
   });
   module.exports = mongoose.model('Truck', TruckSchema);

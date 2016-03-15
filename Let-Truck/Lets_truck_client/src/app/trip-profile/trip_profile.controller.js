@@ -76,18 +76,6 @@ angular
         size:'md'
       });
     }
-    /**
-     *
-     */
-     vmTripProfile.openInfoDiver = function(p){
-       var addModalInstance = $modal.open({
-         animation: true,
-         templateUrl: '/infoModalDriver.html',
-         controllerAs: 'vmInfoDriver',
-         controller:infoDriverController,
-         size:'md'
-       });
-     }
   }
   /**
    *
@@ -124,24 +112,5 @@ angular
         .error(function(err){
 
         })
-    }
-  }
-  /**
-   *
-   */
-  function infoDriverController ($modalInstance,$state,tripService,truckService){
-    var modal = this;
-    var idDriver = localStorage.getItem('idUser');
-    function init(){
-      truckService.getMyTrucks(idDriver)
-      .then(function(data){
-        modal.trucks = data;
-      }).catch(function(e){
-
-      });
-    }
-    init();
-    modal.close = function(){
-       $modalInstance.close('closed');
     }
   }

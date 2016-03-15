@@ -31,7 +31,6 @@ app.use(function (req, res, next) {
 
 //Routes
 //app.use(function(req, res, next) {
-
 	/*var token = req.body.token || req.query.token || req.headers['x-access-token'];
  	if (token) {
   	jwt.verify(token, 'ayuiter', function(err, decoded) {
@@ -40,7 +39,6 @@ app.use(function (req, res, next) {
       } else {sds
       	req.decoded = decoded;
       	next();
-
       }
    	});
  	} else {
@@ -49,7 +47,6 @@ app.use(function (req, res, next) {
        message: 'nooooooooooo otra vez'
 		 });
 	 }*/
-
 //});
 //
 //app.use('/auth', apiRoutes);

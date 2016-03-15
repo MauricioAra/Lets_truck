@@ -14,7 +14,9 @@
                                 'ngMaterial',
                                 'ngMap',
                                 'ngCookies',
-                                'angular-md5'])
+                                'angular-md5',
+                                'cloudinary',
+                                'ngFileUpload'])
    .config(function($mdThemingProvider) {
       $mdThemingProvider.theme("custom").primaryColor("teal").accentColor("deep-orange");
      });

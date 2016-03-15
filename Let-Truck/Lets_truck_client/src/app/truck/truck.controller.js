@@ -8,6 +8,7 @@ angular
     function init(){
       truckService.getMyTrucks(idDriver)
       .then(function(data){
+        console.log(data.data);
         vmTruck.trucks = data.data;
       }).catch(function(e){
 
