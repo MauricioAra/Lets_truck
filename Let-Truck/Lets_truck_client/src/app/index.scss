@@ -99,7 +99,12 @@ hr {
 .container{
   margin-top: 20px;
 }
-
+.help-center{
+  text-align: center;
+}
+.help-center{
+  text-align: center;
+}
 /*-------------------------------------------------------------------------------------------------*/
 
 /**
@@ -110,5 +115,7 @@ hr {
 @import 'login/_login.scss';
 @import 'main/_home.scss';
 @import 'truck/_truck.scss';
+@import 'vendor/animate.scss';
+@import 'dash_board/dash_board_client/_dash_client.scss';
 @import 'componentes/directives/trips_directive/_trip.directive.scss';
 // endinjector

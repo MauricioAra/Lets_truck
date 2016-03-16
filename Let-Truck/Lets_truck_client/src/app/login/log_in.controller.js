@@ -26,8 +26,11 @@ angular
           localStorage.setItem("lastName", data.lastName);
           localStorage.setItem("rol", data.role);
           localStorage.setItem("logged",true);
-          $cookies.put('tokencito', data.token);
+          localStorage.setItem("token", data.token);
+          console.log(localStorage.getItem("token"));
+          //
           $rootScope.$broadcast('logged',{logged:true});
+          //
           $state.go('dash');
         }
       })

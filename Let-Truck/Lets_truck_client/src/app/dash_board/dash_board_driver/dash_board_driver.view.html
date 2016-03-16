@@ -1,6 +1,24 @@
 <div class="container" md-theme="custom">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-primary divcito">
+        <div class="panel-body">
+          <div class="content-profile">
+             <div id="profile-info">
+               <img id="profile-image" src="{{vmDashDriver.user.image}}">
+               <div class="info-user">
+                 <h2 class="tite color-secondary-text">{{vmDash.name}} {{vmDash.lastName}}</h2>
+                 <md-button class="md-raised md-warn">Edit profile</md-button>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2 class="tite color-primary-text help-center">Travel available</h2>
       <div class="form-group">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Search...</label>

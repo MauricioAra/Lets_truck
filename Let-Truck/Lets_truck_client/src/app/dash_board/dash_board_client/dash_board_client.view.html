@@ -1,4 +1,19 @@
-client
-<md-button ng-click="vmDash.createTrip()" class="md-fab md-primary md-hue-2" aria-label="Profile">
-  <md-icon md-svg-src="img/icons/ic_people_24px.svg"></md-icon>
-</md-button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-primary divcito">
+        <div class="panel-body">
+          <div class="content-profile">
+             <div id="profile-info">
+               <img id="profile-image" src="{{vmDashClient.user.image}}">
+               <div class="info-user">
+                 <h2 class="tite color-secondary-text">{{vmDash.name}} {{vmDash.lastName}}</h2>
+                 <md-button class="md-raised md-warn">Edit profile</md-button>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -93,7 +93,7 @@
   </div>
 </div>
 <!--Modal action of tender-->
-     <div class="dau" ng-controller="modalController as modal">
+     <div class="dau animate" ng-controller="modalController as modal">
        <script type="text/ng-template" id="/myModalContent.html">
          <form name="offer">
            <div class="modal-header">
@@ -107,6 +107,7 @@
                  <div class="form-group">
                    <md-input-container class="md-block" flex-gt-sm>
                      <label>Amount</label>
+                     <!--<md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>-->
                      <input required name="amount" ng-model="modal.amount" min="1" type="number"/>
                      <div ng-messages="offer.amount.$error" ng-hide="showHints">
                        <div ng-message="pattern">Please enter a valid amount.</div>

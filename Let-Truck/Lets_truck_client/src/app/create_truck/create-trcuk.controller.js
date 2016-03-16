@@ -42,37 +42,36 @@ angular
           }
           return url;
         }
+     }
+     /**
+      *
+      */
+     function createTruck(snippedImage){
+       //
+       truck = {
+         brand : vmCTruck.brand,
+         model : vmCTruck.model,
+         year : vmCTruck.year,
+         licensePlate : vmCTruck.licensePlate,
+         tonnage : vmCTruck.tonnage.toString(),
+         ramp : vmCTruck.ramp,
+         refrigerated : vmCTruck.refrigerated,
+         extras : vmCTruck.extras,
+         idDriver : lidDriver,
+         image : snippedImage,
+         state : "true"
+       }
+       //
+       truckService.create(truck)
+       .then(function(data){
+         swal(
+           'Success',
+           'Truck created!',
+           'success'
+         )
+         $state.go('trucks');
+       }).catch(function(e){
 
-        /**
-         *
-         */
-        function createTruck(snippedImage){
-          //
-          truck = {
-            brand : vmCTruck.brand,
-            model : vmCTruck.model,
-            year : vmCTruck.year,
-            licensePlate : vmCTruck.licensePlate,
-            tonnage : vmCTruck.tonnage.toString(),
-            ramp : vmCTruck.ramp,
-            refrigerated : vmCTruck.refrigerated,
-            extras : vmCTruck.extras,
-            idDriver : lidDriver,
-            image : snippedImage,
-            state : "true"
-          }
-          //
-          truckService.create(truck)
-          .then(function(data){
-            swal(
-              'Success',
-              'Truck created!',
-              'success'
-            )
-            $state.go('trucks');
-          }).catch(function(e){
-
-          });
-        }
+       });
      }
   }

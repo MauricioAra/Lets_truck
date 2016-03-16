@@ -3,7 +3,7 @@ angular
   .controller('myTripController', myTripController);
   function myTripController(tripService,$state){
     var vmTrip = this;
-    vmTrip.trip = "MY TRIPS"
+    vmTrip.trip = "My trips"
     var myId = localStorage.getItem('idUser');
     var token = localStorage.getItem('token');
     function init(){

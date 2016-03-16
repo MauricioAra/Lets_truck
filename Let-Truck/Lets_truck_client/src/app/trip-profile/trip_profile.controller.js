@@ -106,6 +106,11 @@ angular
       //Create offer function
       tripService.create(offer)
         .success(function(data){
+          swal(
+            'Success!',
+            'Sent offer',
+            'success'
+          );
           $modalInstance.close('closed');
           socket.emit('new_offer', data);
         })
