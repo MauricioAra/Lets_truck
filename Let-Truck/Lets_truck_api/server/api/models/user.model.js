@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://root:root@ds015899.mlab.com:15899/lets_truck');
+//'mongodb://localhost/lets_truck'
+//'mongodb://root:root@ds015899.mlab.com:15899/lets_truck'
+mongoose.connect('mongodb://localhost/lets_truck');
+
   var UserSchema = new mongoose.Schema({
     identification : {type : String , unique : true},
     name: String,
@@ -10,7 +13,7 @@ mongoose.connect('mongodb://root:root@ds015899.mlab.com:15899/lets_truck');
     email : String,
     role : String,
     password : String,
+    image : String,
     token : String
   });
   module.exports = mongoose.model('User', UserSchema);
-  //module.exports = mongoose.model('User', AuthSchema);

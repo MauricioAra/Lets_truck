@@ -6,8 +6,6 @@ angular
     var idDriver = $stateParams.idDriver;
     vmAdvanced.idUserTrip = $stateParams.idUserTrip;
     vmAdvanced.idTrip = $rootScope.idTrip;
-    console.log(vmAdvanced.idUserTrip);
-    console.log(vmAdvanced.idTrip);
     /**
      *
      */

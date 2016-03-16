@@ -16,7 +16,7 @@ var User = require('../models/user.model.js');
     User.create(req.body).then(function(resp){
       res.send(resp);
     }).catch(function(err){
-      errorHandler(err);
+      console.log(err);
     })
   };
   module.exports.getUser = function(req, res){

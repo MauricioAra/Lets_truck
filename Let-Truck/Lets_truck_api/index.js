@@ -1,5 +1,6 @@
 // Main App Entry point
 // dependencies
+require('dotenv').load();
 var express = require('express'),
 		app = express(),
 		http = require('http'),
@@ -75,6 +76,14 @@ io.sockets.on('connection', function(socket) {
  socket.on('new_offer', function (data) {
    socket.broadcast.emit('new_offer', {
      offer : data
+   });
+ });
+});
+
+io.sockets.on('connection', function(socket) {
+ socket.on('new_trip', function (data) {
+   socket.broadcast.emit('new_trip', {
+     trip : data
    });
  });
 

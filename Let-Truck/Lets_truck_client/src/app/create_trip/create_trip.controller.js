@@ -11,6 +11,7 @@ angular
     //Destination variables
     var cantonsLocalDestination = [];
     var distritsLocalDestination = [];
+    socket = io.connect('localhost:3000');
     function init(){
       //
       provinceService.getAll()
@@ -115,6 +116,7 @@ angular
                'Your Trip was created!',
                'success' )
           $state.go('my-trip');
+          socket.emit('new_trip', data);
         })
         .error(function(){
           sweetAlert('Oops...',
