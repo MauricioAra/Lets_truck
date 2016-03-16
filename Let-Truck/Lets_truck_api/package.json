@@ -9,6 +9,10 @@
   },
   "author": "",
   "license": "ISC",
+  "engines":{
+    "node": "5.0.0",
+    "npm" : "3.5.2"
+  },
   "dependencies": {
     "body-parser": "^1.13.2",
     "colors": "^1.1.2",
